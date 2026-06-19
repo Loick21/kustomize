@@ -1,0 +1,17 @@
+namespace: tp7-kustomize
+
+images:
+  - name: ghcr.io/loick21/spring-petclinic
+    newName: ghcr.io/loick21/spring-petclinic
+    newTag: 5.0.0-SNAPSHOT
+
+resources:
+  - "../base"
+
+patches:
+  - path: replicas.yaml
+    target:
+      kind: Deployment
+      name: clinic-deploy
+      
+  - path: patch-routing.yaml

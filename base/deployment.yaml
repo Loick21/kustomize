@@ -19,7 +19,7 @@ spec:
         - name: ghcr-secret
       containers:
         - name: springboot
-          image: ghcr.io/loick21/spring-petclinic:5.0.0-SNAPSHOT
+          image: ghcr.io/loick21/spring-petclinic:4.0.0-SNAPSHOT
           startupProbe:
             httpGet:
               path: /actuator/health/readiness
