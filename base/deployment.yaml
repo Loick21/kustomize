@@ -19,29 +19,26 @@ spec:
         - name: ghcr-secret
       containers:
         - name: springboot
-          image: ghcr.io/loick21/spring-petclinic:latest
-
+          image: ghcr.io/loick21/spring-petclinic:5.0.0-SNAPSHOT
           startupProbe:
             httpGet:
-              path: /tp6/actuator/health/readiness
+              path: /actuator/health/readiness
               port: 8080
             timeoutSeconds: 2
             periodSeconds: 10
             initialDelaySeconds: 10
             failureThreshold: 30
-
           livenessProbe:
             httpGet:
-              path: /tp6/actuator/health/liveness
+              path: /actuator/health/liveness
               port: 8080
             timeoutSeconds: 2
             periodSeconds: 10
             initialDelaySeconds: 30
             failureThreshold: 3
-
           readinessProbe:
             httpGet:
-              path: /tp6/actuator/health/readiness
+              path: /actuator/health/readiness
               port: 8080
             timeoutSeconds: 2
             periodSeconds: 10
